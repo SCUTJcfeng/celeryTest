@@ -5,10 +5,10 @@ python:
 install:
   - pip install pipenv
   - pipenv install --dev
+before_script:
+  - sudo redis-server -p 6380
 script:
   - pipenv run flake8 --ignore=E501
   - pipenv run celery multi start w1 -A tasks worker --loglevel=info
   - pipenv run python trigger.py
   - pipenv run celery multi stop w1 -A tasks worker --loglevel=info
-services:
-  - redis-server -p 6380

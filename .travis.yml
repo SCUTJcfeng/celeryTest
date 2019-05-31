@@ -6,7 +6,7 @@ install:
   - pip install pipenv
   - pipenv install --dev
 before_script:
-  - sudo redis-server -p 6380
+  - sudo redis-server --port 6380
 script:
   - pipenv run flake8 --ignore=E501
   - pipenv run celery multi start w1 -A tasks worker --loglevel=info

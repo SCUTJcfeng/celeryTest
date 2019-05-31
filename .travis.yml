@@ -9,6 +9,6 @@ script:
   - pipenv run flake8 --ignore=E501
   - pipenv run celery multi start w1 -A tasks worker --loglevel=info
   - pipenv run trigger.py
-  pipenv run celery multi stop w1 -A tasks worker --loglevel=info
+  - pipenv run celery multi stop w1 -A tasks worker --loglevel=info
 services:
   - redis-server -p 6380

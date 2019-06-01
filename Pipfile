@@ -10,6 +10,7 @@ flake8 = "*"
 celery = "*"
 redis = "*"
 gevent = "*"
+flower = "*"
 
 [requires]
 python_version = "3.6"

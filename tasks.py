@@ -4,15 +4,14 @@
 Project: celeryTest
 Author: jc feng (jcfeng2013@gmail.com)
 File Created: 2019-05-31 15:09:23
-Last Modified: 2019-05-31 15:18:59
+Last Modified: 2019-06-01 10:37:08
 '''
 
 from celery import Celery
 
-broker = 'redis://127.0.0.1:6380/5'
-backend = 'redis://127.0.0.1:6380/6'
 
-app = Celery('tasks', broker=broker, backend=backend)
+app = Celery('tasks')
+app.config_from_object('config')
 
 
 @app.task
